@@ -6,7 +6,12 @@ Answers my [SO question](https://stackoverflow.com/q/73603420/11998382) whether 
 To set up developer enviroment install nix and run
 ```console
 foo@bar:~$ nix-shell gcc.shell
-Or
+foo@bar:~$ sh build_run.sh
+```
+
+or for clang
+
+```console
 foo@bar:~$ nix-shell clang.shell
 foo@bar:~$ sh build_run.sh
 ```
