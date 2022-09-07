@@ -1,4 +1,5 @@
 Adjacent Transform SIMD Benchmark
+-------------
 
 Answers my [SO question](https://stackoverflow.com/q/73603420/11998382) whether adjacent transform can be speed up in SIMD by loading the data one once.
 
