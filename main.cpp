@@ -34,9 +34,9 @@ void adjacent_load_once(vector_type& input, vector_type& output)
         auto batch_a0 = batch_a1;
         batch_a1 = _mm256_load_ps(input.data() +  BATCH_SIZE * (i + 1) );
         
-        auto permuted = _mm256_permute2x128_si256(batch_a0, batch_a1, 0x21);
-        auto batch_b0 =  _mm256_castsi256_ps(_mm256_alignr_epi8(permuted, batch_a0, sizeof(float)));
-        auto out_batch = _mm256_add_ps(batch_a0,batch_b0);
+        auto permuted = _mm256_permute2x128_si256((__m256i)batch_a0, (__m256i)batch_a1, 0x21);
+        auto batch_b0 =  _mm256_castsi256_ps(_mm256_alignr_epi8(permuted, (__m256i)batch_a0, sizeof(float)));
+        auto out_batch = _mm256_add_ps(batch_a0, batch_b0);
         _mm256_store_ps(output.data() + BATCH_SIZE * i, out_batch);
     }
 }

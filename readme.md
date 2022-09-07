@@ -2,6 +2,14 @@ Adjacent Transform SIMD Benchmark
 
 Answers my [SO question](https://stackoverflow.com/q/73603420/11998382) whether adjacent transform can be speed up in SIMD by loading the data one once.
 
+To set up developer enviroment install nix and run
+```console
+foo@bar:~$ nix-shell gcc.shell
+Or
+foo@bar:~$ nix-shell clang.shell
+foo@bar:~$ sh build_run.sh
+```
+
 NUM_FLOATS = 1 << 8
 ```
 Run on (4 X 3299.05 MHz CPU s)
