@@ -18,10 +18,10 @@ void print(const char* msg, __m256& v)
     print256ps(v);
 }
 
-
+constexpr std::size_t NUM_FLOATS = 1 << 24;
 constexpr std::size_t BATCH_SIZE = 8;
-constexpr std::size_t NUM_BATCHES = 64;
-constexpr std::size_t NUM_FLOATS = BATCH_SIZE * NUM_BATCHES;
+static_assert(NUM_FLOATS % BATCH_SIZE == 0);
+constexpr std::size_t NUM_BATCHES = NUM_FLOATS / BATCH_SIZE;
 
 using vector_type = AlignedVector<float, sizeof(float) * BATCH_SIZE>;
 
